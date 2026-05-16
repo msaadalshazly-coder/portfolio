@@ -1,0 +1,285 @@
+/* =======================================
+   1. المتغيرات العامة ولوحة الألوان التكنولوجية الفخمة
+   ======================================= */
+:root {
+    /* الألوان الأساسية وثيم الموقع */
+    --brand-primary: #0a58ca;      /* أزرق ملكي احترافي وعميق للـ العناوين الأساسية والبراند */
+    --brand-secondary: #0dcaf0;    /* أزرق سماوي مضيء (Cyan) للمسات والروابط اللامعة */
+    --hero-dark-bg: #11141a;       /* رمادي داكن فخم جداً مائل للكحلي لخلفية الهيرو */
+    --body-bg: #fdfdfd;            /* أوف وايت ناعم جداً للخلفية الأساسية للموقع */
+    --section-light-bg: #f4f6f9;   /* رمادي ثلجي خفيف يفصل السكشنز بشكل مريح للعين */
+    --footer-bg: #090b0e;          /* أسود عميق متناسق مع خلفية الهيرو للفوتر */
+    
+    /* ألوان النصوص والظلال */
+    --text-main: #252830;          /* لون النص الأساسي (مريح جداً للقراءة وطويل الأمد) */
+    --text-muted: #6c757d;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    --hover-shadow: 0 15px 30px rgba(10, 88, 202, 0.08); /* ظل أزرق خفيف وناعم عند الهوفير */
+
+    /* ألوان المهارات واللغات (براندات رسمية) */
+    --color-html: #e34f26;
+    --color-css: #1572b6;
+    --color-js: #f7df1e;
+    --color-react: #61dafb;
+    --color-bootstrap: #7952b3;
+    --color-jquery: #0769ad;
+    --color-design: #ff9a00;
+    --color-success: #198754;
+
+    /* الحركات والسرعة */
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    --transition-fast: all 0.25s ease;
+}
+
+/* =======================================
+   2. التنسيقات العامة للمتصفح والبنية
+   ======================================= */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--body-bg);
+    color: var(--text-main);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.lh-base {
+    line-height: 1.8 !important; /* مساحة ممتازة للأسطر تمنع تداخل الكلمات */
+}
+
+.section-padding {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+}
+
+.section-title {
+    color: var(--brand-primary);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* خط تجميلي صغير تحت عنوان كل سكشن */
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    background-color: var(--brand-secondary);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* جعل الخط يضبط جهة اليسار على الشاشات الكبيرة */
+@media (min-content-width: 768px) {
+    text-md-start .section-title::after {
+        left: 0;
+        transform: translateX(0);
+    }
+}
+
+.bg-light-section {
+    background-color: var(--section-light-bg) !important;
+}
+
+/* =======================================
+   3. القائمة العلوية التفاعلية (Navbar)
+   ======================================= */
+.custom-nav {
+    transition: var(--transition-smooth);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* الألوان فوق خالص عند فتح الصفحة */
+.custom-nav.navbar-dark .navbar-brand,
+.custom-nav.navbar-dark .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.custom-nav.navbar-dark .nav-link:hover {
+    color: var(--brand-secondary) !important;
+}
+
+/* الألوان التلقائية عند نزول السكرول */
+.custom-nav.bg-white {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.custom-nav.bg-white .navbar-brand {
+    color: var(--brand-primary) !important;
+}
+
+.custom-nav.bg-white .nav-link {
+    color: var(--text-main) !important;
+}
+
+.custom-nav.bg-white .nav-link:hover {
+    color: var(--brand-primary) !important;
+}
+
+/* =======================================
+   4. الهيدر والبنية البصرية للـ Hero
+   ======================================= */
+.hero-bg {
+    background: radial-gradient(circle at 50% 50%, #1a202c 0%, var(--hero-dark-bg) 100%);
+    border-bottom: 3px solid var(--brand-primary);
+    min-height: 75vh;
+}
+
+.hero-title {
+    letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+    color: var(--brand-secondary);
+    letter-spacing: 1px;
+}
+
+.hero-contact-info .contact-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.hero-contact-info .contact-link:hover {
+    color: var(--brand-secondary);
+    text-decoration: underline !important;
+}
+
+.hero-contact-info .contact-item {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* زر الـ View My Work الاحترافي الجديد */
+.btn-custom-action {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid var(--brand-secondary);
+    transition: var(--transition-fast);
+}
+
+.btn-custom-action:hover {
+    background-color: var(--brand-secondary);
+    color: var(--hero-dark-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(13, 202, 240, 0.3) !important;
+}
+
+/* تأثير ارتداد الصورة العائمة */
+.hero-profile-img {
+    border: 6px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+.animate-icon {
+    animation: float4Frame 4s ease-in-out infinite;
+}
+
+@keyframes float4Frame {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+/* =======================================
+   5. الكروت والمحتوى الداخلي (Cards)
+   ======================================= */
+.card-heading {
+    color: var(--text-main);
+}
+
+.card-hover, .skill-card, .project-card {
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(0, 0, 0, 0.03) !important;
+}
+
+.card-hover:hover, .skill-card:hover, .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--hover-shadow) !important;
+}
+
+/* تلوين حواف كروت المهارات بدقة */
+.border-html { border-top-color: var(--color-html) !important; }
+.text-html { color: var(--color-html); }
+
+.border-css { border-top-color: var(--color-css) !important; }
+.text-css { color: var(--color-css); }
+
+.border-js { border-top-color: var(--color-js) !important; }
+.text-js { color: var(--color-js); background: #333; padding: 2px 6px; border-radius: 4px; } /* لزيادة وضوح الأصفر */
+
+.border-react { border-top-color: var(--color-react) !important; }
+.text-react { color: var(--color-react); }
+
+.border-bootstrap { border-top-color: var(--color-bootstrap) !important; }
+.text-bootstrap { color: var(--color-bootstrap); }
+
+.border-jquery { border-top-color: var(--color-jquery) !important; }
+.text-jquery { color: var(--color-jquery); }
+
+.border-design { border-top-color: var(--color-design) !important; }
+.text-design { color: var(--color-design); }
+
+.border-primary { border-start-color: var(--brand-primary) !important; }
+.border-experience { border-start-color: var(--color-success) !important; }
+
+/* البادجات والـ Tech Stack داخل المشاريع */
+.bg-custom-primary { background-color: var(--brand-primary) !important; color: #fff; }
+.bg-custom-success { background-color: var(--color-success) !important; color: #fff; }
+.text-custom-primary { color: var(--brand-primary); }
+
+.badge-tech-outline {
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    font-weight: 500;
+}
+
+/* =======================================
+   6. الفوتر والأنميشن التلقائي (Footer & Animations)
+   ======================================= */
+.custom-footer {
+    background-color: var(--footer-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, opacity;
+}
+
+.animate-on-scroll.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =======================================
+   7. الشاشات المتجاوبة ومقاسات الموبايل
+   ======================================= */
+@media (max-width: 767.98px) {
+    .hero-profile-img {
+        width: 160px;
+        height: 160px;
+        border-width: 4px;
+    }
+    .section-padding {
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+    }
+    .animate-on-scroll {
+        transform: translateY(20px);
+    }
+}
